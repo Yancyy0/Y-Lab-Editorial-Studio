@@ -5,7 +5,7 @@ const reviewTools = [
     id: "github",
     title: "GitHub",
     href: "https://github.com/yancyforw-max/SAB-news-audit-skill",
-    features: ["本地运行", "豆包可安装 SKILL"],
+    features: ["本地运行", "Agent可安装Skill"],
     guide: "https://hcnwz7yz594b.feishu.cn/docx/ETaodw0yRo1EPRxkIJWcFt4Cnse",
   },
   {
