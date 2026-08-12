@@ -17,7 +17,7 @@ const assetGroups: AssetGroup[] = [
     category: "SAB 品牌素材",
     items: [
       { name: "SAB LOGO", href: "https://hcnwz7yz594b.feishu.cn/drive/folder/TyNrfYWuKlVbMidCLUlcdYchnrg" },
-      { name: "新大楼图片", href: "https://hcnwz7yz594b.feishu.cn/drive/folder/D0sifppG0lmsRadTN4hcgtSBn3g" },
+      { name: "其他", href: "https://hcnwz7yz594b.feishu.cn/drive/folder/D0sifppG0lmsRadTN4hcgtSBn3g" },
     ],
   },
   {
