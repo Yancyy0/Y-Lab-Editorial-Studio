@@ -3,16 +3,16 @@ import ModuleHeader from "../ModuleHeader";
 const reviewTools = [
   {
     id: "github",
-    title: "GitHub",
+    title: "Skill",
     href: "https://github.com/yancyforw-max/SAB-news-audit-skill",
-    features: ["本地运行", "Agent可安装Skill"],
+    features: ["本地部署", "Agent调用"],
     guide: "https://hcnwz7yz594b.feishu.cn/docx/ETaodw0yRo1EPRxkIJWcFt4Cnse",
   },
   {
     id: "coze",
-    title: "COZE 扣子",
+    title: "对话智能体",
     href: "https://www.coze.cn/store/agent/7670800816265199651?bot_id=true",
-    features: ["网页友好", "飞书可用"],
+    features: ["网页访问", "快速调用"],
     guide: "https://hcnwz7yz594b.feishu.cn/docx/MiEYde8CRoSxVjx9O1bc27kon4f",
   },
 ] as const;
