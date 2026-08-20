@@ -15,6 +15,13 @@ const reviewTools = [
     features: ["网页访问", "快速调用"],
     guide: "https://hcnwz7yz594b.feishu.cn/docx/MiEYde8CRoSxVjx9O1bc27kon4f",
   },
+  {
+    id: "layout",
+    title: "AI排版",
+    href: "https://xiumi.us/#/",
+    features: ["复制使用", "一键排版"],
+    guide: "https://weixing.feishu.cn/docx/E8yrdhTOVoH484x1lwVcUndRnad?from=from_copylink",
+  },
 ] as const;
 
 export default function ReviewPage() {
