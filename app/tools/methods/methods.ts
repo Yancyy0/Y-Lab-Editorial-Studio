@@ -36,7 +36,7 @@ export const methodGuides: MethodGuide[] = [
   },
   {
     slug: "editorial-photography",
-    href: "https://sab-photography-playbook.yancyforw.chatgpt.site/",
+    href: "/tools/methods/editorial-photography",
     title: "宣传摄影指南",
     englishTitle: "EDITORIAL PHOTOGRAPHY GUIDE",
     description: "用一份基础镜头清单，稳定拍到能用于新闻、海报和内部传播的有效照片。",
