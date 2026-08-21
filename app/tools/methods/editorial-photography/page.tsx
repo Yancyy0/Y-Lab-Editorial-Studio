@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "宣传摄影指南",
@@ -116,11 +117,11 @@ export default function Home() {
 
       <header className="hero">
         <div className="guide-site-header">
-          <a className="guide-wordmark" href="https://skyblue-keyboard-viewer.yancyforw.chatgpt.site/tools" aria-label="返回 Yancy's Lab 工具清单">
+          <Link className="guide-wordmark" href="/" aria-label="返回 Yancy's Lab 首页">
             <span>Yancy&apos;s Lab</span>
             <small>Editorial Studio</small>
-          </a>
-          <a className="guide-return" href="https://skyblue-keyboard-viewer.yancyforw.chatgpt.site/tools">返回工具清单 <span aria-hidden="true">↗</span></a>
+          </Link>
+          <Link className="guide-return" href="/tools">返回工具清单 <span aria-hidden="true">↗</span></Link>
         </div>
         <div className="hero__layout">
           <div className="hero__content">
