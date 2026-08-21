@@ -14,26 +14,27 @@ type AssetGroup = {
 const assetGroups: AssetGroup[] = [
   {
     code: "SAB",
-    category: "SAB 品牌素材",
+    category: "SAB品牌素材",
     items: [
-      { name: "SAB LOGO", href: "https://hcnwz7yz594b.feishu.cn/drive/folder/TyNrfYWuKlVbMidCLUlcdYchnrg" },
-      { name: "其他", href: "https://hcnwz7yz594b.feishu.cn/drive/folder/D0sifppG0lmsRadTN4hcgtSBn3g" },
+      { name: "SAB LOGO", href: "https://weixing.feishu.cn/drive/folder/TyNrfYWuKlVbMidCLUlcdYchnrg" },
+      { name: "产业PPT模版", href: "https://weixing.feishu.cn/drive/folder/AGexfXQAOltqfKd2lGicC6GEnwf" },
+      { name: "其他", href: "https://weixing.feishu.cn/drive/folder/D0sifppG0lmsRadTN4hcgtSBn3g" },
     ],
   },
   {
-    code: "PPT",
-    category: "PPT 模版",
+    code: "CASES",
+    category: "活动案例库",
     items: [
-      { name: "产业 PPT 模版", href: "https://hcnwz7yz594b.feishu.cn/file/Ul5UbrxmKoUABax32VMcXmGtngh" },
-      { name: "免商字体 ｜ 思源", href: "https://hcnwz7yz594b.feishu.cn/drive/folder/EwJFfv2OClENSVdRsbgcL4oOnDb" },
+      { name: "企业文化", href: "https://weixing.feishu.cn/wiki/B7u7wImmliXeEBkEd5Vce3HWn4b?from=from_copylink" },
+      { name: "节日活动", href: "https://weixing.feishu.cn/wiki/CtVvw2aqmiONgQkDcgLc528wnNh?from=from_copylink" },
     ],
   },
   {
-    code: "VIDEO",
-    category: "星视频封面模版",
+    code: "PHOTO",
+    category: "品牌图库",
     items: [
-      { name: "叙事类封面模版", href: "https://hcnwz7yz594b.feishu.cn/slides/LvuHsUUxpl8BLAd6rfYcrcq7n9h" },
-      { name: "新闻类封面模版", href: "https://hcnwz7yz594b.feishu.cn/slides/Mwo9sEh7OlikRkdtiwxcRkFhnrh" },
+      { name: "产业新办公楼", href: "https://weixing.feishu.cn/drive/folder/OyRQfseVolGkvad9niccUAzRnLb" },
+      { name: "人物拍摄范例", href: "https://weixing.feishu.cn/drive/folder/WBVIfDQAslrTWcdoYkTcByeknDe" },
     ],
   },
 ];
