@@ -2,16 +2,19 @@
 
 import { useMemo, useState } from "react";
 import ModuleHeader from "../ModuleHeader";
+import { methodGuides, type MethodSlug } from "./methods/methods";
 
-const categories = ["全部", "海报制作", "图片素材", "文件处理", "排版设计", "其他"] as const;
+const primaryCategories = ["全部", "工具", "方法"] as const;
+const toolCategories = ["海报制作", "图片素材", "文件处理", "排版设计", "其他"] as const;
 
-type ToolCategory = (typeof categories)[number];
+type PrimaryCategory = (typeof primaryCategories)[number];
+type ToolCategory = (typeof toolCategories)[number];
 
 type ToolItem = {
   name: string;
   url: string;
   description: string;
-  category: Exclude<ToolCategory, "全部">;
+  category: ToolCategory;
   action: string;
 };
 
@@ -43,11 +46,27 @@ const tools: ToolItem[] = [
 ];
 
 export default function ToolsPage() {
-  const [activeCategory, setActiveCategory] = useState<ToolCategory>("全部");
+  const [activePrimary, setActivePrimary] = useState<PrimaryCategory>("全部");
+  const [activeToolCategory, setActiveToolCategory] = useState<ToolCategory | null>(null);
+  const [activeMethod, setActiveMethod] = useState<MethodSlug | null>(null);
+
   const visibleTools = useMemo(
-    () => activeCategory === "全部" ? tools : tools.filter((tool) => tool.category === activeCategory),
-    [activeCategory],
+    () => activeToolCategory ? tools.filter((tool) => tool.category === activeToolCategory) : tools,
+    [activeToolCategory],
   );
+  const visibleMethods = useMemo(
+    () => activeMethod ? methodGuides.filter((method) => method.slug === activeMethod) : methodGuides,
+    [activeMethod],
+  );
+
+  const selectPrimary = (category: PrimaryCategory) => {
+    setActivePrimary(category);
+    setActiveToolCategory(null);
+    setActiveMethod(null);
+  };
+
+  const showTools = activePrimary !== "方法";
+  const showMethods = activePrimary !== "工具";
 
   return (
     <main className="annual-page tools-page">
@@ -60,38 +79,118 @@ export default function ToolsPage() {
         </h1>
       </section>
 
-      <section className="tools-directory" aria-label="宣传工具目录">
-        <nav className="tools-filters" aria-label="工具分类筛选">
-          {categories.map((category) => (
+      <section className="tools-directory" aria-label="宣传资源目录">
+        <nav className="tools-primary-filters" aria-label="资源类型">
+          {primaryCategories.map((category) => (
             <button
               type="button"
-              className={activeCategory === category ? "is-active" : undefined}
-              aria-pressed={activeCategory === category}
-              onClick={() => setActiveCategory(category)}
+              className={activePrimary === category ? "is-active" : undefined}
+              aria-pressed={activePrimary === category}
+              onClick={() => selectPrimary(category)}
               key={category}
             >
-              {category}
+              <span>{category}</span>
+              <span aria-hidden="true">
+                {category === "全部" ? tools.length + methodGuides.length : category === "工具" ? tools.length : methodGuides.length}
+              </span>
             </button>
           ))}
         </nav>
 
-        <div className="tools-grid">
-          {visibleTools.map((tool) => (
-            <a
-              className="tool-card"
-              href={tool.url}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${tool.name}，打开外部网站`}
-              key={tool.name}
-            >
-              <h2 className="tool-card__title">{tool.name}</h2>
-              <p className="tool-card__description">{tool.description}</p>
-              <span className="tool-card__action">{tool.action}</span>
-              <span className="tool-card__arrow" aria-hidden="true">↗</span>
-            </a>
-          ))}
-        </div>
+        {activePrimary === "工具" && (
+          <nav className="tools-secondary-filters" aria-label="工具分类">
+            <span>工具分类</span>
+            <div>
+              {toolCategories.map((category) => (
+                <button
+                  type="button"
+                  className={activeToolCategory === category ? "is-active" : undefined}
+                  aria-pressed={activeToolCategory === category}
+                  onClick={() => setActiveToolCategory(activeToolCategory === category ? null : category)}
+                  key={category}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </nav>
+        )}
+
+        {activePrimary === "方法" && (
+          <nav className="tools-secondary-filters" aria-label="方法分类">
+            <span>方法分类</span>
+            <div>
+              {methodGuides.map((method) => (
+                <button
+                  type="button"
+                  className={activeMethod === method.slug ? "is-active" : undefined}
+                  aria-pressed={activeMethod === method.slug}
+                  onClick={() => setActiveMethod(activeMethod === method.slug ? null : method.slug)}
+                  key={method.slug}
+                >
+                  {method.title}
+                </button>
+              ))}
+            </div>
+          </nav>
+        )}
+
+        {showMethods && (
+          <section className="tools-content-section" aria-labelledby="methods-heading">
+            <div className="tools-section-heading">
+              <div>
+                <span>METHODS</span>
+                <h2 id="methods-heading">方法</h2>
+              </div>
+            </div>
+
+            <div className="methods-grid">
+              {visibleMethods.map((method, index) => (
+                <a
+                  className="method-card"
+                  href={method.href}
+                  aria-label={`阅读${method.title}`}
+                  key={method.slug}
+                >
+                  <span className="method-card__number">0{index + 1}</span>
+                  <span className="method-card__type">EDITORIAL GUIDE</span>
+                  <h3>{method.title}</h3>
+                  <span className="method-card__link">进入阅读 <span aria-hidden="true">→</span></span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {showTools && (
+          <section className="tools-content-section" aria-labelledby="tools-heading">
+            <div className="tools-section-heading">
+              <div>
+                <span>UTILITIES</span>
+                <h2 id="tools-heading">工具</h2>
+              </div>
+              <p>{activeToolCategory ? `当前分类 · ${activeToolCategory}` : "打开即用的宣传工作资源"}</p>
+            </div>
+
+            <div className="tools-grid">
+              {visibleTools.map((tool) => (
+                <a
+                  className="tool-card"
+                  href={tool.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${tool.name}，打开外部网站`}
+                  key={tool.name}
+                >
+                  <h3 className="tool-card__title">{tool.name}</h3>
+                  <p className="tool-card__description">{tool.description}</p>
+                  <span className="tool-card__action">{tool.action}</span>
+                  <span className="tool-card__arrow" aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
       </section>
     </main>
   );
