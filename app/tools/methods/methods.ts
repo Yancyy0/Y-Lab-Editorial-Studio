@@ -27,7 +27,7 @@ export const methodGuides: MethodGuide[] = [
     readingTime: "",
     lead: "互动元素是电子刊的核心优势，合理使用可显著提升阅读时长和参与感。",
     sections: [
-      { number: "01", title: "选型对比", summary: "电子刊 vs 纸质刊。", points: [] },
+      { number: "01", title: "电子刊优势", summary: "从制作成本到环保属性，逐项查看电子刊优势。", points: [] },
       { number: "02", title: "工具选型", summary: "工具分类总览与选型决策。", points: [] },
       { number: "03", title: "制作流程", summary: "策划准备、编辑制作、发布校对。", points: [] },
       { number: "04", title: "互动元素", summary: "合理使用可显著提升阅读时长和参与感。", points: [] },
