@@ -61,7 +61,20 @@ const categoryNotes: Record<SourceCategory, string> = {
   肖像: "肖像权与著作权是独立权利，自己拍的照片使用时也需肖像授权。",
 };
 
-const checkGroups = [
+type CheckItem = {
+  id: number;
+  text: string;
+  help: string;
+  href?: string;
+};
+
+type CheckGroup = {
+  code: string;
+  title: string;
+  items: CheckItem[];
+};
+
+const checkGroups: CheckGroup[] = [
   {
     code: "A",
     title: "素材来源",
@@ -91,7 +104,7 @@ const checkGroups = [
       { id: 11, text: "保留了完整的委托、授权和付款材料", help: "飞书云文档归档" },
     ],
   },
-] as const;
+];
 
 const emergencySteps = [
   { number: "01", title: "立即响应", time: "24 小时内", actions: ["停止使用并下架", "保存下架时间证据", "平台端优先处理"] },
