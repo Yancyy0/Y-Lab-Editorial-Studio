@@ -158,17 +158,17 @@ export default function Home() {
       </header>
 
       <nav className="quick-nav" aria-label="手册目录">
-        <a href="#basics"><span>01</span>参数基础</a>
-        <a href="#composition"><span>02</span>构图方法</a>
-        <a href="#meeting"><span>03</span>会议培训</a>
-        <a href="#factory"><span>04</span>工厂营销</a>
+        <a href="#basics"><span>01</span><b>参数基础</b><small>CAMERA BASICS</small></a>
+        <a href="#composition"><span>02</span><b>构图方法</b><small>COMPOSITION</small></a>
+        <a href="#meeting"><span>03</span><b>会议培训</b><small>MEETING / TRAINING</small></a>
+        <a href="#factory"><span>04</span><b>工厂营销</b><small>FACTORY MARKETING</small></a>
       </nav>
 
       <section className="section section--basics" id="basics">
         <div className="section-heading">
           <p className="section-kicker">01 · CAMERA BASICS</p>
-          <h2>参数<br />基础</h2>
-          <p>快门、光圈、感光度共同决定画面的明暗与表现。</p>
+          <h2>参数基础</h2>
+          <p>快门、光圈、感光度共同决定画面明暗与表现。</p>
         </div>
 
         <div className="basics-content">
@@ -217,7 +217,12 @@ export default function Home() {
         <MeetingEditorial items={meetingCards} />
 
         <details className="placement-note">
-          <summary>合影站位提示</summary>
+          <summary>
+            <span className="placement-note__title">合影站位提示</span>
+            <span className="placement-note__hint placement-note__hint--closed" aria-hidden="true">点击 + 查看</span>
+            <span className="placement-note__hint placement-note__hint--open" aria-hidden="true">点击 − 收起</span>
+            <span className="placement-note__toggle" aria-hidden="true" />
+          </summary>
           <div>
             <p><b>自身单位 · 偶数位领导</b><span>5、3、1、2、4、6</span></p>
             <p><b>两家单位</b><span>3、2、1、1、2、3</span></p>

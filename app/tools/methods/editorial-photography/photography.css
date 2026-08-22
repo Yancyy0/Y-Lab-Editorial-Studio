@@ -81,11 +81,11 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  grid-template-columns: minmax(0, 1.18fr) minmax(340px, 0.82fr);
   gap: clamp(48px, 7vw, 104px);
   width: min(1240px, calc(100% - 64px));
   margin: 0 auto;
-  padding: 130px 0 54px;
+  padding: 150px 0 72px;
   align-items: center;
 }
 .photography-guide-page .hero__content {
@@ -100,7 +100,7 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   text-transform: uppercase;
 }
 .photography-guide-page .hero h1 {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0;
   font-size: clamp(64px, 7vw, 102px);
   font-weight: 680;
@@ -126,40 +126,41 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 .photography-guide-page .hero__start:focus-visible { border-color: var(--sky-deep); color: var(--sky-deep); outline: 0; }
 .photography-guide-page .profile-card {
   position: relative;
-  width: min(100%, 450px);
-  min-height: 294px;
-  justify-self: end;
+  width: 100%;
+  height: 396px;
+  min-height: 396px;
+  justify-self: stretch;
   overflow: hidden;
   border: 2px solid rgba(91, 168, 197, 0.42);
-  border-radius: 28px;
+  border-radius: 30px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 24px 60px rgba(23, 35, 44, 0.1);
 }
 .photography-guide-page .profile-card__base,
 .photography-guide-page .profile-card__reveal {
   display: flex;
-  min-height: 294px;
+  min-height: 396px;
   flex-direction: column;
-  padding: 22px;
+  padding: 30px;
 }
 .photography-guide-page .profile-card__base { color: var(--ink); }
 .photography-guide-page .profile-card__reveal {
   position: absolute;
   inset: 0;
   background: var(--sky-soft);
-  clip-path: circle(43px at 56px 56px);
+  clip-path: circle(51px at 72px 72px);
   color: #173240;
   transition: clip-path 0.82s cubic-bezier(0.87, 0, 0.13, 1);
 }
 .photography-guide-page .profile-card:hover .profile-card__reveal,
 .photography-guide-page .profile-card:focus-within .profile-card__reveal {
-  clip-path: circle(170% at 56px 56px);
+  clip-path: circle(170% at 72px 72px);
 }
 .photography-guide-page .profile-card__avatar-space,
 .photography-guide-page .profile-card__avatar-link {
-  width: 68px;
-  height: 68px;
-  flex: 0 0 68px;
+  width: 84px;
+  height: 84px;
+  flex: 0 0 84px;
   border-radius: 50%;
 }
 .photography-guide-page .profile-card__avatar-space { visibility: hidden; }
@@ -198,19 +199,19 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 }
 .photography-guide-page .profile-card__avatar-link:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 4px; }
 .photography-guide-page .profile-card__place {
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   color: #5a707a;
   font: 700 10px/1.35 var(--font-geist-mono), monospace;
   font-size: clamp(14px, 1.25vw, 18px);
   letter-spacing: 0.12em;
 }
 .photography-guide-page .profile-card h2 {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   font-size: clamp(28px, 2.5vw, 36px);
   letter-spacing: -0.045em;
 }
 .photography-guide-page .profile-card__about {
-  margin: 12px 0 0;
+  margin: 16px 0 0;
   color: #4e626b;
   font-size: clamp(14px, 1.25vw, 18px);
   line-height: 1.6;
@@ -234,21 +235,24 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   backdrop-filter: blur(16px);
 }
 .photography-guide-page .quick-nav a {
-  display: flex;
-  min-height: 62px;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 0 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 14px;
+  min-height: 82px;
+  align-content: center;
+  padding: 0 24px;
   border-right: 1px solid var(--line);
-  font-size: 14px;
-  font-weight: 700;
   transition: background 180ms ease, color 180ms ease;
 }
 .photography-guide-page .quick-nav a:last-child { border-right: 0; }
-.photography-guide-page .quick-nav span { color: var(--sky-deep); font: 700 10px var(--font-geist-mono), monospace; }
+.photography-guide-page .quick-nav span { grid-row: 1 / 3; align-self: center; color: var(--sky-deep); font: 700 10px var(--font-geist-mono), monospace; }
+.photography-guide-page .quick-nav b { font-size: 15px; }
+.photography-guide-page .quick-nav small { margin-top: 3px; color: var(--muted); font: 700 9px var(--font-geist-mono), monospace; letter-spacing: 0.11em; }
 .photography-guide-page .quick-nav a:hover,
 .photography-guide-page .quick-nav a:focus-visible { background: #17232c; color: #f1f9fb; outline: 0; }
+.photography-guide-page .quick-nav a:hover small,
+.photography-guide-page .quick-nav a:focus-visible small { color: #b9d9e6; }
 
 .photography-guide-page .section { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 116px 0; }
 .photography-guide-page .section + .section { border-top: 1px solid var(--line); }
@@ -261,6 +265,7 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 
 .photography-guide-page .section--basics { display: grid; grid-template-columns: 0.58fr 1.42fr; gap: 78px; }
 .photography-guide-page .section--basics .section-heading { position: sticky; top: 92px; align-self: start; }
+.photography-guide-page .section--basics .section-heading h2 { white-space: nowrap; }
 .photography-guide-page .basics-content { display: grid; gap: 30px; }
 .photography-guide-page .exposure-grid {
   display: grid;
@@ -501,10 +506,29 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 .photography-guide-page .photo-card__copy ol { margin: 0; padding: 0; list-style: none; counter-reset: point; }
 .photography-guide-page .photo-card__copy li { position: relative; padding: 13px 0 13px 34px; border-top: 1px solid var(--line); color: #4a5a62; line-height: 1.65; counter-increment: point; }
 .photography-guide-page .photo-card__copy li::before { position: absolute; left: 0; color: var(--sky-deep); content: counter(point, decimal-leading-zero); font: 700 10px var(--font-geist-mono), monospace; }
-.photography-guide-page .placement-note { margin-top: 24px; overflow: hidden; border: 1px solid rgba(23, 35, 44, 0.13); border-radius: 14px; background: rgba(255, 255, 255, 0.46); }
-.photography-guide-page .placement-note summary { display: flex; min-height: 64px; align-items: center; justify-content: space-between; padding: 0 24px; cursor: pointer; font-size: 18px; font-weight: 700; }
-.photography-guide-page .placement-note summary::after { color: var(--sky-deep); content: "+"; font-size: 26px; }
-.photography-guide-page .placement-note[open] summary::after { content: "−"; }
+.photography-guide-page .placement-note { margin-top: 24px; overflow: hidden; border: 1px solid rgba(23, 35, 44, 0.13); border-radius: 14px; background: rgba(255, 255, 255, 0.46); box-shadow: 0 10px 26px rgba(23, 35, 44, 0.04); transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+.photography-guide-page .placement-note:hover { border-color: rgba(91, 168, 197, 0.78); box-shadow: 0 20px 48px rgba(23, 35, 44, 0.12), 0 0 0 3px rgba(135, 206, 235, 0.14); transform: translateY(-4px); }
+.photography-guide-page .placement-note summary { position: relative; display: flex; min-height: 82px; align-items: center; padding: 0 24px; list-style: none; cursor: pointer; font-size: 18px; font-weight: 700; }
+.photography-guide-page .placement-note summary::-webkit-details-marker { display: none; }
+.photography-guide-page .placement-note__title { margin-right: auto; }
+.photography-guide-page .placement-note__hint { position: absolute; right: 78px; padding: 6px 10px; border-radius: 999px; background: var(--ink); color: white; font-size: 10px; font-weight: 750; letter-spacing: 0.04em; opacity: 0; pointer-events: none; transform: translateX(8px); transition: opacity 160ms ease, transform 160ms ease; }
+.photography-guide-page .placement-note__hint--open { display: none; }
+.photography-guide-page .placement-note:hover .placement-note__hint--closed,
+.photography-guide-page .placement-note:focus-within .placement-note__hint--closed { opacity: 1; transform: translateX(0); }
+.photography-guide-page .placement-note[open] .placement-note__hint--closed { display: none; }
+.photography-guide-page .placement-note[open] .placement-note__hint--open { display: inline-flex; }
+.photography-guide-page .placement-note[open]:hover .placement-note__hint--open,
+.photography-guide-page .placement-note[open]:focus-within .placement-note__hint--open { opacity: 1; transform: translateX(0); }
+.photography-guide-page .placement-note__toggle { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border: 1px solid rgba(91, 168, 197, 0.42); border-radius: 50%; color: var(--sky-deep); background: rgba(135, 206, 235, 0.12); font-size: 27px; font-weight: 300; line-height: 1; transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+.photography-guide-page .placement-note__toggle::before { content: "+"; }
+.photography-guide-page .placement-note:not([open]):hover .placement-note__toggle,
+.photography-guide-page .placement-note:not([open]):focus-within .placement-note__toggle { color: white; background: var(--sky-deep); box-shadow: 0 0 0 7px rgba(135, 206, 235, 0.2); transform: scale(1.08); animation: placement-plus-pulse 1.25s ease-in-out infinite; }
+.photography-guide-page .placement-note[open] .placement-note__toggle { color: var(--ink); background: white; }
+.photography-guide-page .placement-note[open] .placement-note__toggle::before { content: "−"; }
+@keyframes placement-plus-pulse {
+  0%, 100% { box-shadow: 0 0 0 5px rgba(135, 206, 235, 0.17); }
+  50% { box-shadow: 0 0 0 10px rgba(135, 206, 235, 0.05); }
+}
 .photography-guide-page .placement-note > div { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
 .photography-guide-page .placement-note p { display: flex; justify-content: space-between; gap: 20px; margin: 0; padding: 24px; }
 .photography-guide-page .placement-note p:first-child { border-right: 1px solid var(--line); }
@@ -530,6 +554,8 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 .photography-guide-page footer a:focus-visible { border-color: var(--sky); color: var(--sky); outline: 0; }
 
 @media (max-width: 900px) {
+  .photography-guide-page .hero__layout { grid-template-columns: 1fr; }
+  .photography-guide-page .profile-card { width: min(100%, 600px); }
   .photography-guide-page .section--basics { grid-template-columns: 1fr; }
   .photography-guide-page .section--basics .section-heading { position: static; }
   .photography-guide-page .section--portrait { grid-template-columns: 1fr; }
@@ -547,14 +573,14 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   .photography-guide-page .hero h1 { max-width: 520px; font-size: clamp(49px, 15vw, 64px); }
   .photography-guide-page .hero__content > p:not(.eyebrow) { max-width: 280px; font-size: 17px; line-height: 1.6; }
   .photography-guide-page .hero__start { margin-top: 28px; font-size: clamp(32px, 10vw, 42px); }
-  .photography-guide-page .profile-card { width: 100%; min-height: 294px; justify-self: stretch; }
+  .photography-guide-page .profile-card { width: 100%; height: 396px; min-height: 396px; justify-self: stretch; }
   .photography-guide-page .profile-card__base,
-.photography-guide-page .profile-card__reveal { min-height: 294px; padding: 22px; }
-  .photography-guide-page .profile-card__reveal { clip-path: circle(43px at 56px 56px); }
+.photography-guide-page .profile-card__reveal { min-height: 396px; padding: 26px; }
+  .photography-guide-page .profile-card__reveal { clip-path: circle(49px at 68px 68px); }
   .photography-guide-page .profile-card:hover .profile-card__reveal,
-.photography-guide-page .profile-card:focus-within .profile-card__reveal { clip-path: circle(180% at 56px 56px); }
+.photography-guide-page .profile-card:focus-within .profile-card__reveal { clip-path: circle(180% at 68px 68px); }
   .photography-guide-page .quick-nav { grid-template-columns: repeat(4, minmax(116px, 1fr)); justify-content: start; overflow-x: auto; }
-  .photography-guide-page .quick-nav a { min-height: 58px; justify-content: flex-start; padding: 0 14px; }
+  .photography-guide-page .quick-nav a { min-height: 70px; padding: 0 14px; }
   .photography-guide-page .section { width: calc(100% - 32px); padding: 82px 0; }
   .photography-guide-page .section--composition,
 .photography-guide-page .section--factory { width: 100%; padding-inline: 16px; }
