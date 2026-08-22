@@ -99,7 +99,7 @@ const checkGroups: CheckGroup[] = [
     title: "内容权属",
     items: [
       { id: 8, text: "员工作品已通过合同 / 手册明确权属", help: "核对内部合同或员工手册" },
-      { id: 9, text: "活动征集作品已在公告中明确企业使用权", help: "核对活动公告与征集规则" },
+      { id: 9, text: "活动征集作品已在公告中明确企业使用权", help: "核对相关通知与规则" },
       { id: 10, text: "委托第三方创作的合同明确著作权归属企业", help: "联系法务确认合同" },
       { id: 11, text: "保留了完整的委托、授权和付款材料", help: "飞书云文档归档" },
     ],
@@ -161,10 +161,9 @@ export default function CopyrightRiskCheck() {
         </div>
         <div className="hero__layout">
           <div className="hero__content">
-            <p className="hero__eyebrow">RIGHTS &amp; USAGE · QUICK CHECK</p>
             <h1>侵权风险速查</h1>
             <p className="hero__subtitle">风险一眼识别，工具直接可用，3分钟完成排查。</p>
-            <a className="hero__start" href="#pre-publish">开始自检 <span aria-hidden="true">→</span></a>
+            <a className="hero__start" href="#pre-publish">开始自检 <span aria-hidden="true">↓</span></a>
           </div>
           <aside className="hero-stats" aria-label="速查内容统计">
             <p><strong>9</strong><span>类风险</span></p>
@@ -184,7 +183,7 @@ export default function CopyrightRiskCheck() {
       <section className="section" id="risk-scenes">
         <div className="section-heading section-heading--split">
           <div><p className="section-kicker">01 · RISK SCENES</p><h2>9类高风险场景，<br />一眼识别</h2></div>
-          <p>点击卡片查看踩坑点与风险提醒；有可用工具的场景，可直接前往官网。</p>
+          <p>点击卡片查看踩坑点、风险提醒、配套工具。</p>
         </div>
         <div className="risk-grid">
           {riskScenes.map((risk) => {
@@ -197,6 +196,7 @@ export default function CopyrightRiskCheck() {
                     {Array.from({ length: 5 }, (_, index) => <i className={index < risk.level ? "is-filled" : undefined} key={index} />)}
                   </span>
                   <h3>{risk.title}</h3>
+                  <span className="risk-card__hint" aria-hidden="true">{isOpen ? "点击 − 收起" : "点击 + 查看"}</span>
                   <span className="risk-card__toggle" aria-hidden="true">{isOpen ? "−" : "+"}</span>
                 </button>
                 <div className="risk-card__details" hidden={!isOpen}>
@@ -271,6 +271,10 @@ export default function CopyrightRiskCheck() {
             <div><p className="section-kicker">04 · EMERGENCY</p><h2>收到侵权投诉怎么办？<br />按流程走</h2></div>
             <p>先停止风险扩散并保存证据，再收集材料提交法务部门核查。</p>
           </div>
+          <aside className="emergency-alert">
+            <strong>立即处理</strong>
+            <p>先停止使用并下架，同时保存处理时间和相关证据。</p>
+          </aside>
           <div className="emergency-flow">
             {emergencySteps.map((step) => (
               <article key={step.number}><header><span>{step.number}</span><strong>{step.time}</strong></header><h3>{step.title}</h3><ol>{step.actions.map((action) => <li key={action}>{action}</li>)}</ol></article>
