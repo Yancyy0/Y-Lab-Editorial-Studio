@@ -7,6 +7,35 @@ export const metadata: Metadata = {
   description: "工具怎么选、流程怎么走、互动怎么做。",
 };
 
+const toolHomepages = {
+  云展网: "https://www.yunzhan365.com/",
+  FLBOOK: "https://flbook.com.cn/",
+  Flipsnack: "https://www.flipsnack.com/",
+  Canva可画: "https://www.canva.cn/",
+  创客贴: "https://www.chuangkit.com/index.html",
+  稿定设计: "https://www.gaoding.com/",
+  秀米: "https://xiumi.us/",
+  易企秀: "https://www.eqxiu.com/",
+  MAKA: "https://www.maka.im/",
+} as const;
+
+type ToolName = keyof typeof toolHomepages;
+
+function ToolLink({ name, label = name }: { name: ToolName; label?: string }) {
+  return (
+    <a
+      className="tool-inline-link"
+      href={toolHomepages[name]}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={`打开${name}官网`}
+      aria-label={`打开${name}官网，新窗口打开`}
+    >
+      <span>{label}</span><span aria-hidden="true">↗</span>
+    </a>
+  );
+}
+
 const comparisonRows = [
   ["制作成本", "仅需平台会员/免费，零印刷&邮寄成本"],
   ["制作周期", "排版→发布→分享，当天即可上线"],
@@ -17,18 +46,18 @@ const comparisonRows = [
   ["环保属性", "无实体消耗"],
 ];
 
-const toolOverviewRows = [
-  ["在线翻页平台", "云展网、FLBOOK、Flipsnack", "无设计基础", "★☆☆☆☆", "PDF/Word直接导入，模板多，自动生成，自带数据统计"],
+const toolOverviewRows: ReactNode[][] = [
+  ["在线翻页平台", <><ToolLink name="云展网" />、<ToolLink name="FLBOOK" />、<ToolLink name="Flipsnack" /></>, "无设计基础", "★☆☆☆☆", "PDF/Word直接导入，模板多，自动生成，自带数据统计"],
   ["专业排版软件", "Adobe InDesign", "有设计基础人员", "★★★★☆", "印刷级精度"],
-  ["轻量设计平台", "Canva可画、创客贴、稿定设计", "运营/宣传人员", "★★☆☆☆", "拖拽式操作，模板丰富，适合单页/封面/配图"],
-  ["H5制作工具", "秀米、易企秀、MAKA", "运营/活动宣传", "★★☆☆☆", "动画/交互/表单丰富，适合活动型电子刊"],
+  ["轻量设计平台", <><ToolLink name="Canva可画" />、<ToolLink name="创客贴" />、<ToolLink name="稿定设计" /></>, "运营/宣传人员", "★★☆☆☆", "拖拽式操作，模板丰富，适合单页/封面/配图"],
+  ["H5制作工具", <><ToolLink name="秀米" />、<ToolLink name="易企秀" />、<ToolLink name="MAKA" /></>, "运营/活动宣传", "★★☆☆☆", "动画/交互/表单丰富，适合活动型电子刊"],
 ];
 
-const decisionRows = [
-  ["求快求简", "云展网", "中文界面，PDF一键转翻页"],
-  ["求专求精", "Adobe InDesign + 云展网发布", "AI排版出PDF，云展网转在线，专业+传播兼顾"],
-  ["有海外读者/需嵌入官网", "Flipsnack", "国际化平台，嵌入代码/邮件分发成熟"],
-  ["模板套用", "Canva可画 + 云展网", "Canva做单页设计，云展网组装成翻页刊"],
+const decisionRows: ReactNode[][] = [
+  ["求快求简", <ToolLink name="云展网" />, "中文界面，PDF一键转翻页"],
+  ["求专求精", <>Adobe InDesign + <ToolLink name="云展网" />发布</>, <>AI排版出PDF，<ToolLink name="云展网" />转在线，专业+传播兼顾</>],
+  ["有海外读者/需嵌入官网", <ToolLink name="Flipsnack" />, "国际化平台，嵌入代码/邮件分发成熟"],
+  ["模板套用", <><ToolLink name="Canva可画" /> + <ToolLink name="云展网" /></>, <><ToolLink name="Canva可画" label="Canva" />做单页设计，<ToolLink name="云展网" />组装成翻页刊</>],
 ];
 
 const planningRows = [
@@ -38,12 +67,12 @@ const planningRows = [
   ["广告页", "广告可加跳转链接，直接导流至产品页/报名页"],
 ];
 
-const editingRows = [
+const editingRows: ReactNode[][] = [
   ["阅稿组稿", "标注哪些段落适合插入互动元素"],
   ["改稿", "电子刊阅读节奏快，文章建议精简，多用小标题和列表"],
   ["刊首语", "可配主编语音/短视频，增强亲切感"],
   ["排版设计", "注意字号，行间距放宽，适配手机阅读"],
-  ["互动元素添加", "交互方式：点击“+”展开明细（内容对应“四、互动元素”）"],
+  ["互动元素添加", <a className="section-inline-link" href="#interaction" title="跳转到04互动元素">点击查看具体内容</a>],
   ["审核修改", "在线修改，审核反馈高效"],
 ];
 
@@ -68,13 +97,19 @@ const previewChecklist = (
   </div>
 );
 
+const reviewNotes = (
+  <div className="cell-section-notes">
+    <p><b>数据验证：</b><span>根据阅读时长最久的页面瞄准下期优化方向</span></p>
+    <p><b>参考借鉴：</b><span>根据往期主题纵向对比策划新一期内容</span></p>
+  </div>
+);
+
 const publishingRows: ReactNode[][] = [
   ["预览适配", "手机/电脑/平板多端预览，检查显示效果", previewChecklist],
-  ["发布上线", "在平台发布，生成永久链接和二维码", "分享设置：分享标题/封面/描述正确，品牌Logo已设置，访问权限正确（公开/密码）；二维码有效：生成的二维码可正常扫码访问，链接永久有效"],
+  ["发布上线", "在平台发布，生成永久链接和二维码", "分享标题/封面/描述正确，品牌Logo已设置，访问权限正确（公开/密码）"],
   ["多渠道分发", "通过微信/飞书等渠道推送", "链接可嵌入推文"],
   ["数据监控", "跟踪阅读量、阅读时长、热门页面、分享渠道", "发布后第1天/第3天/第7天分别查看，及时二次推送"],
-  ["复盘", "复盘1：总结内容效果和分发经验", "用数据说话：哪篇文章读得最久？哪个页面跳出最高？下期优化方向"],
-  ["", "复盘2：汇总往期约稿主题与栏目设置", "便于后续策划时参考选题方向"],
+  ["复盘", "分析数据、汇总往期约稿主题", reviewNotes],
 ];
 
 const interactionRows = [
@@ -87,10 +122,10 @@ const interactionRows = [
   ["电话/按钮", "联系我们、一键拨号、立即报名", "封底/广告页/活动页", "按钮位置醒目，文案明确（如“立即报名”“点击咨询”）"],
 ];
 
-function GuideTable({ label, headers, rows, numbered = false }: { label: string; headers: string[]; rows: ReactNode[][]; numbered?: boolean }) {
+function GuideTable({ label, headers, rows, numbered = false, className }: { label: string; headers: string[]; rows: ReactNode[][]; numbered?: boolean; className?: string }) {
   return (
     <div className="guide-table-wrap" role="region" aria-label={label} tabIndex={0}>
-      <table className={numbered ? "guide-table guide-table--numbered" : "guide-table"}>
+      <table className={["guide-table", numbered && "guide-table--numbered", className].filter(Boolean).join(" ")}>
         <thead><tr>{numbered && <th aria-label="序号">NO.</th>}{headers.map((header) => <th key={header}>{header}</th>)}</tr></thead>
         <tbody>
           {rows.map((row, rowIndex) => (
@@ -167,13 +202,13 @@ export default function EditorialMagazineGuidePage() {
         <div className="stage-list">
           <article className="stage"><header><span>STAGE 01</span><h3>策划准备</h3></header><GuideTable label="阶段一策划准备" headers={["节点", "特别注意"]} rows={planningRows} numbered /></article>
           <article className="stage"><header><span>STAGE 02</span><h3>编辑制作</h3></header><GuideTable label="阶段二编辑制作" headers={["节点", "特别注意"]} rows={editingRows} numbered /></article>
-          <article className="stage"><header><span>STAGE 03</span><h3>发布校对</h3></header><GuideTable label="阶段三发布校对" headers={["节点", "做什么", "特别注意"]} rows={publishingRows} numbered /></article>
+          <article className="stage"><header><span>STAGE 03</span><h3>发布校对</h3></header><GuideTable label="阶段三发布校对" headers={["节点", "做什么", "特别注意"]} rows={publishingRows} numbered className="publishing-table" /></article>
         </div>
         <SectionPager current="03" next="#interaction" />
       </section>
 
       <section className="section section--tinted" id="interaction">
-        <div className="section-heading section-heading--split"><div><p className="section-kicker">04 · INTERACTION</p><h2>互动元素</h2></div><p>互动元素是电子刊的核心优势，合理使用可显著提升阅读时长和参与感。</p></div>
+        <div className="section-heading section-heading--split"><div><p className="section-kicker">04 · INTERACTION</p><h2>互动元素</h2></div><p>合理使用互动元素可显著提升阅读时长和参与感。</p></div>
         <GuideTable label="电子刊互动元素" headers={["互动类型", "适用场景", "放置位置建议", "注意事项"]} rows={interactionRows} numbered />
         <SectionPager current="04" />
       </section>

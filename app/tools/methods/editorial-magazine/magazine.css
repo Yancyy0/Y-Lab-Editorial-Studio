@@ -167,6 +167,45 @@ html:has(.editorial-magazine-guide-page) { scroll-behavior: smooth; scroll-paddi
 .editorial-magazine-guide-page .guide-table__number { width: 64px; color: var(--sky-deep) !important; font: 700 10px var(--font-geist-mono), monospace; }
 .editorial-magazine-guide-page .guide-table:has(th:nth-child(6)) { min-width: 1080px; }
 .editorial-magazine-guide-page .guide-table:has(th:nth-child(5)) { min-width: 980px; }
+.editorial-magazine-guide-page .tool-inline-link,
+.editorial-magazine-guide-page .section-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #356f87;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(91, 168, 197, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: background 160ms ease, color 160ms ease, text-decoration-color 160ms ease, transform 160ms ease;
+}
+.editorial-magazine-guide-page .tool-inline-link > span:last-child,
+.editorial-magazine-guide-page .section-inline-link > span:last-child { color: var(--sky-deep); font-size: 0.8em; text-decoration: none; }
+.editorial-magazine-guide-page .tool-inline-link:hover,
+.editorial-magazine-guide-page .tool-inline-link:focus-visible,
+.editorial-magazine-guide-page .section-inline-link:hover,
+.editorial-magazine-guide-page .section-inline-link:focus-visible {
+  background: rgba(135, 206, 235, 0.22);
+  color: #1f5f78;
+  outline: 1px solid rgba(91, 168, 197, 0.32);
+  text-decoration-color: currentColor;
+  transform: translateY(-1px);
+}
+.editorial-magazine-guide-page .publishing-table { min-width: 1160px; table-layout: fixed; }
+.editorial-magazine-guide-page .publishing-table th:nth-child(1),
+.editorial-magazine-guide-page .publishing-table td:nth-child(1) { width: 64px; }
+.editorial-magazine-guide-page .publishing-table th:nth-child(2),
+.editorial-magazine-guide-page .publishing-table td:nth-child(2) { width: 132px; }
+.editorial-magazine-guide-page .publishing-table th:nth-child(3),
+.editorial-magazine-guide-page .publishing-table td:nth-child(3) { width: 330px; white-space: nowrap; }
+.editorial-magazine-guide-page .cell-section-notes { display: grid; gap: 22px; min-width: 410px; }
+.editorial-magazine-guide-page .cell-section-notes p { margin: 0; }
+.editorial-magazine-guide-page .cell-section-notes p + p { padding-top: 20px; border-top: 1px solid var(--line); }
+.editorial-magazine-guide-page .cell-section-notes b { display: block; margin-bottom: 12px; color: var(--ink); font-size: 16px; }
+.editorial-magazine-guide-page .cell-section-notes span { display: block; }
 .editorial-magazine-guide-page .cell-checklists { display: grid; gap: 24px; min-width: 440px; }
 .editorial-magazine-guide-page .cell-checklists > div + div { padding-top: 22px; border-top: 1px solid var(--line); }
 .editorial-magazine-guide-page .cell-checklists b { display: block; margin-bottom: 12px; color: var(--ink); font-size: 16px; }
