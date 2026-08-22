@@ -109,7 +109,7 @@ const checkGroups: CheckGroup[] = [
 const emergencySteps = [
   { number: "01", title: "立即响应", time: "24 小时内", actions: ["停止使用并下架", "保存下架时间证据", "平台端优先处理"] },
   { number: "02", title: "收集材料", time: "48 小时内", actions: ["创作底稿 / 授权文件", "购买记录 / 发布记录", "投诉方权属证明核查"] },
-  { number: "03", title: "三步判断法", time: "3 个工作日", actions: ["将整理好的全部材料提交法务部门", "配合法务核查作品权属、授权链条和侵权事实", "等待法务出具处理意见", "根据法务意见执行后续动作"] },
+  { number: "03", title: "对接法务部门", time: "3 个工作日", actions: ["将整理好的全部材料提交法务部门", "配合法务核查作品权属、授权链条和侵权事实", "等待法务出具处理意见", "根据法务意见执行后续动作"] },
 ];
 
 function ExternalToolLink({ name }: { name: ToolName }) {
@@ -131,7 +131,7 @@ function SectionPager({ current, next }: { current: string; next?: string }) {
 }
 
 export default function CopyrightRiskCheck() {
-  const [expandedRisk, setExpandedRisk] = useState<string | null>("02");
+  const [expandedRisk, setExpandedRisk] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<SourceCategory>("图片");
   const [checked, setChecked] = useState<Set<number>>(() => new Set());
 
@@ -213,7 +213,7 @@ export default function CopyrightRiskCheck() {
       <section className="section section--tinted" id="safe-sources">
         <div className="section-heading section-heading--split">
           <div><p className="section-kicker">02 · SAFE SOURCES</p><h2>按素材类型找工具，<br />直接可用</h2></div>
-          <p>先选择素材类型，再打开对应工具官网。使用前仍需核对具体素材的授权说明。</p>
+          <p>使用前仍需核对具体素材的授权说明。</p>
         </div>
         <div className="source-tabs" role="tablist" aria-label="素材类型">
           {(["图片", "音乐", "字体", "肖像"] as const).map((category) => (
