@@ -228,7 +228,7 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   top: 0;
   z-index: 8;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-bottom: 1px solid var(--line);
   background: rgba(247, 246, 241, 0.92);
   backdrop-filter: blur(16px);
@@ -305,6 +305,191 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 .photography-guide-page .composition-grid figcaption { display: flex; gap: 14px; padding: 17px 18px 20px; color: #314650; font-weight: 700; }
 .photography-guide-page .composition-grid figcaption span { color: var(--sky-deep); font: 700 11px var(--font-geist-mono), monospace; }
 
+.photography-guide-page .composition-accordion {
+  display: flex;
+  height: clamp(480px, 53vw, 660px);
+  gap: 10px;
+}
+.photography-guide-page .composition-accordion__item {
+  position: relative;
+  min-width: 0;
+  flex: 1 1 0;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(23, 35, 44, 0.12);
+  border-radius: 14px;
+  background: #cadde4;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  transition: flex-grow 620ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, box-shadow 220ms ease;
+}
+.photography-guide-page .composition-accordion__item.is-active {
+  flex-grow: 5.2;
+  border-color: rgba(61, 130, 157, 0.42);
+  box-shadow: 0 18px 42px rgba(23, 35, 44, 0.14);
+}
+.photography-guide-page .composition-accordion__item:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 3px; }
+.photography-guide-page .composition-accordion__item img {
+  object-fit: cover;
+  transition: filter 420ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.photography-guide-page .composition-accordion__item:not(.is-active) img { filter: saturate(0.72) brightness(0.72); }
+.photography-guide-page .composition-accordion__item.is-active img { transform: scale(1.018); }
+.photography-guide-page .composition-accordion__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 26, 34, 0.05) 35%, rgba(12, 26, 34, 0.78) 100%);
+}
+.photography-guide-page .composition-accordion__index,
+.photography-guide-page .composition-accordion__label { position: absolute; z-index: 2; }
+.photography-guide-page .composition-accordion__index {
+  top: 18px;
+  left: 18px;
+  font: 700 11px var(--font-geist-mono), monospace;
+  letter-spacing: 0.12em;
+}
+.photography-guide-page .composition-accordion__label {
+  right: 0;
+  bottom: 22px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+}
+.photography-guide-page .composition-accordion__item.is-active .composition-accordion__label {
+  right: auto;
+  bottom: 28px;
+  left: 26px;
+  display: block;
+  font-size: clamp(22px, 2.4vw, 34px);
+  letter-spacing: -0.03em;
+  writing-mode: horizontal-tb;
+}
+
+.photography-guide-page .meeting-editorial {
+  overflow: hidden;
+  border: 1px solid rgba(23, 35, 44, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 18px 44px rgba(23, 35, 44, 0.06);
+}
+.photography-guide-page .meeting-editorial__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 28px;
+  padding: 34px 36px 30px 24px;
+  animation: meeting-stage-in 420ms ease both;
+}
+@keyframes meeting-stage-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.photography-guide-page .meeting-editorial__number {
+  color: rgba(23, 35, 44, 0.08);
+  font-size: clamp(82px, 9vw, 126px);
+  font-weight: 300;
+  letter-spacing: -0.09em;
+  line-height: 0.8;
+  user-select: none;
+}
+.photography-guide-page .meeting-editorial__image {
+  position: relative;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #d6e1e5;
+}
+.photography-guide-page .meeting-editorial__image img { object-fit: contain; }
+.photography-guide-page .meeting-editorial__copy { align-self: center; padding: 20px 4px; }
+.photography-guide-page .meeting-editorial__eyebrow {
+  margin: 0 0 18px;
+  color: var(--sky-deep);
+  font: 700 10px/1.3 var(--font-geist-mono), monospace;
+  letter-spacing: 0.14em;
+}
+.photography-guide-page .meeting-editorial__copy h3 {
+  margin: 0 0 34px;
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 620;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+.photography-guide-page .meeting-editorial__copy ol { margin: 0; padding: 0; list-style: none; }
+.photography-guide-page .meeting-editorial__copy li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  padding: 15px 0;
+  border-top: 1px solid var(--line);
+}
+.photography-guide-page .meeting-editorial__copy li > span {
+  padding-top: 4px;
+  color: var(--sky-deep);
+  font: 700 10px var(--font-geist-mono), monospace;
+}
+.photography-guide-page .meeting-editorial__copy li p { margin: 0; color: #4a5a62; line-height: 1.7; }
+.photography-guide-page .meeting-editorial__navigation {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 34px;
+  border-top: 1px solid var(--line);
+}
+.photography-guide-page .meeting-editorial__selectors,
+.photography-guide-page .meeting-editorial__arrows { display: flex; align-items: center; }
+.photography-guide-page .meeting-editorial__selectors { gap: 10px; }
+.photography-guide-page .meeting-editorial__selectors button {
+  display: grid;
+  width: 34px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.photography-guide-page .meeting-editorial__selectors button span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: rgba(23, 35, 44, 0.22);
+  transition: width 300ms ease, background 300ms ease;
+}
+.photography-guide-page .meeting-editorial__selectors button:hover span { width: 27px; background: rgba(23, 35, 44, 0.48); }
+.photography-guide-page .meeting-editorial__selectors button.is-active span { width: 34px; background: var(--ink); }
+.photography-guide-page .meeting-editorial__selectors button:focus-visible,
+.photography-guide-page .meeting-editorial__arrows button:focus-visible { outline: 2px solid var(--sky-deep); outline-offset: 2px; }
+.photography-guide-page .meeting-editorial__selectors strong {
+  margin-left: 10px;
+  color: var(--muted);
+  font: 700 10px var(--font-geist-mono), monospace;
+  letter-spacing: 0.1em;
+}
+.photography-guide-page .meeting-editorial__arrows { gap: 6px; }
+.photography-guide-page .meeting-editorial__arrows button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(23, 35, 44, 0.12);
+  border-radius: 50%;
+  background: transparent;
+  color: #53656e;
+  cursor: pointer;
+  font-size: 19px;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.photography-guide-page .meeting-editorial__arrows button:hover { background: var(--ink); color: white; transform: translateY(-2px); }
+
 .photography-guide-page .photo-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .photography-guide-page .photo-card { overflow: hidden; border: 1px solid rgba(23, 35, 44, 0.11); border-radius: 16px; background: rgba(255, 255, 255, 0.62); box-shadow: 0 10px 26px rgba(23, 35, 44, 0.04); }
 .photography-guide-page .photo-card__image { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #d6e1e5; }
@@ -368,7 +553,7 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   .photography-guide-page .profile-card__reveal { clip-path: circle(43px at 56px 56px); }
   .photography-guide-page .profile-card:hover .profile-card__reveal,
 .photography-guide-page .profile-card:focus-within .profile-card__reveal { clip-path: circle(180% at 56px 56px); }
-  .photography-guide-page .quick-nav { grid-template-columns: repeat(5, minmax(116px, 1fr)); justify-content: start; overflow-x: auto; }
+  .photography-guide-page .quick-nav { grid-template-columns: repeat(4, minmax(116px, 1fr)); justify-content: start; overflow-x: auto; }
   .photography-guide-page .quick-nav a { min-height: 58px; justify-content: flex-start; padding: 0 14px; }
   .photography-guide-page .section { width: calc(100% - 32px); padding: 82px 0; }
   .photography-guide-page .section--composition,
@@ -385,6 +570,29 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   .photography-guide-page .field-note { grid-template-columns: 1fr; }
   .photography-guide-page .composition-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .photography-guide-page .composition-grid figcaption { display: grid; gap: 6px; padding: 14px; font-size: 13px; }
+  .photography-guide-page .composition-accordion { height: 680px; flex-direction: column; }
+  .photography-guide-page .composition-accordion__item { min-height: 0; }
+  .photography-guide-page .composition-accordion__label {
+    right: auto;
+    bottom: 14px;
+    left: 16px;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0;
+    writing-mode: horizontal-tb;
+  }
+  .photography-guide-page .composition-accordion__item.is-active .composition-accordion__label { bottom: 20px; left: 18px; font-size: 24px; }
+  .photography-guide-page .meeting-editorial__stage { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+  .photography-guide-page .meeting-editorial__number { position: absolute; top: 30px; left: 28px; z-index: 2; color: rgba(255, 255, 255, 0.82); font-size: 72px; }
+  .photography-guide-page .meeting-editorial__image { min-height: 0; aspect-ratio: 3 / 2; }
+  .photography-guide-page .meeting-editorial__copy { padding: 12px 2px 6px; }
+  .photography-guide-page .meeting-editorial__copy h3 { margin-bottom: 24px; font-size: 36px; }
+  .photography-guide-page .meeting-editorial__navigation { min-height: 72px; padding: 0 18px; }
+  .photography-guide-page .meeting-editorial__selectors { gap: 4px; }
+  .photography-guide-page .meeting-editorial__selectors button { width: 26px; }
+  .photography-guide-page .meeting-editorial__selectors button.is-active span { width: 26px; }
+  .photography-guide-page .meeting-editorial__selectors strong { margin-left: 6px; }
+  .photography-guide-page .meeting-editorial__arrows button { width: 38px; height: 38px; }
   .photography-guide-page .photo-card-grid { grid-template-columns: 1fr; }
   .photography-guide-page .photo-card__copy { min-height: 0; padding: 24px 20px 30px; }
   .photography-guide-page .photo-card__copy h3 { font-size: 24px; }
@@ -399,9 +607,14 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
 @media (prefers-reduced-motion: reduce) {
   html:has(.photography-guide-page) { scroll-behavior: auto; }
   .photography-guide-page .composition-grid img,
+.photography-guide-page .composition-accordion__item,
+.photography-guide-page .composition-accordion__item img,
+.photography-guide-page .meeting-editorial__selectors button span,
+.photography-guide-page .meeting-editorial__arrows button,
 .photography-guide-page .photo-card__image img,
 .photography-guide-page .guide-return,
 .photography-guide-page .hero__start,
 .photography-guide-page .profile-card__reveal,
 .photography-guide-page .profile-card__avatar-link > span { transition: none; }
+  .photography-guide-page .meeting-editorial__stage { animation: none; }
 }

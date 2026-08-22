@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CompositionAccordion, MeetingEditorial } from "./PhotographyInteractive";
 
 export const metadata: Metadata = {
   title: "宣传摄影指南",
@@ -64,51 +65,42 @@ const meetingCards = [
 
 const factoryCards = [
   {
+    code: "01",
     title: "会议室交流 · 3 张",
     image: "/photography/image51.jpeg",
     points: ["全景：中心对称，带会议名称或客户 Logo。", "侧拍：记录全员状态饱满的场景。", "特写：记录客户 1 号领导发言。"],
   },
   {
+    code: "02",
     title: "参观车间",
     image: "/photography/image54.jpeg",
     points: ["常规选 2–3 个典型场景；特殊要求再全程跟拍。", "提前熟悉路线，结合近景、中景、全景。", "1 号人物居中正面拍摄；侧面至少看清面部，不拍后脑勺或背面。"],
   },
   {
+    code: "03",
     title: "高层互动",
     image: "/photography/image60.jpeg",
     points: ["多拍双方协作、热情交谈、欣赏自然等互动镜头。", "摄影师注意引导、创造机会。", "条件允许时，给每位客户或业务伙伴拍单人特写。"],
   },
   {
+    code: "04",
     title: "人与自然",
     image: "/photography/image68.jpeg",
     points: ["全景：体现人与自然、团队与自然风光。", "中景：体现团队协作。", "近景：体现自然特征、人物神情或活动主题。"],
   },
   {
+    code: "05",
     title: "工作花絮",
     image: "/photography/image76.jpeg",
     points: ["全景 / 中景：体现团队活力与风采。", "特写：体现劳动成果等。"],
   },
   {
+    code: "06",
     title: "工厂营销合影",
     image: "/photography/image84.jpeg",
     points: ["与其他场合合影一致。", "视线与人物平齐，画面端正，人物在中心。", "可拍摄 2 次，并提供拍照 Pose。"],
   },
 ];
-
-function PhotoCard({ image, title, code, points }: { image: string; title: string; code?: string; points: string[] }) {
-  return (
-    <article className="photo-card">
-      <div className="photo-card__image">
-        <Image src={image} alt={`${title}示例`} fill sizes="(max-width: 760px) 100vw, 50vw" />
-        {code && <span>{code}</span>}
-      </div>
-      <div className="photo-card__copy">
-        <h3>{title}</h3>
-        <ol>{points.map((point) => <li key={point}>{point}</li>)}</ol>
-      </div>
-    </article>
-  );
-}
 
 export default function Home() {
   return (
@@ -170,7 +162,6 @@ export default function Home() {
         <a href="#composition"><span>02</span>构图方法</a>
         <a href="#meeting"><span>03</span>会议培训</a>
         <a href="#factory"><span>04</span>工厂营销</a>
-        <a href="#portrait"><span>05</span>人物特写</a>
       </nav>
 
       <section className="section section--basics" id="basics">
@@ -212,14 +203,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="composition-grid">
-          {compositionExamples.map((example, index) => (
-            <figure key={`${example.src}-${index}`}>
-              <div><Image src={example.src} alt={`${example.label}示例`} fill sizes="(max-width: 760px) 50vw, 33vw" /></div>
-              <figcaption><span>0{index + 1}</span>{example.label}</figcaption>
-            </figure>
-          ))}
-        </div>
+        <CompositionAccordion items={compositionExamples} defaultIndex={1} />
       </section>
 
       <section className="section section--scenarios" id="meeting">
@@ -230,9 +214,7 @@ export default function Home() {
           </div>
           <p>全景、交流、发言、合影。<br />先保证信息完整，再抓人物状态。</p>
         </div>
-        <div className="photo-card-grid photo-card-grid--meeting">
-          {meetingCards.map((card) => <PhotoCard key={card.code} {...card} />)}
-        </div>
+        <MeetingEditorial items={meetingCards} />
 
         <details className="placement-note">
           <summary>合影站位提示</summary>
@@ -251,26 +233,11 @@ export default function Home() {
           </div>
           <p>会议室交流 → 参观车间 → 户外活动 → 合影</p>
         </div>
-        <div className="photo-card-grid">
-          {factoryCards.map((card) => <PhotoCard key={card.title} {...card} />)}
-        </div>
-      </section>
-
-      <section className="section section--portrait" id="portrait">
-        <div className="portrait-images">
-          <div><Image src="/photography/image87.jpeg" alt="带工作背景的人物写真示例" fill sizes="(max-width: 760px) 100vw, 45vw" /></div>
-          <div><Image src="/photography/image93.jpeg" alt="竖幅人物写真示例" fill sizes="(max-width: 760px) 50vw, 25vw" /></div>
-        </div>
-        <div className="portrait-copy">
-          <p className="section-kicker">05 · PORTRAIT</p>
-          <h2>人物写真<br />带工作背景</h2>
-          <p className="usage-label">常规用途</p>
-          <div className="usage-list">
-            <span>集团、产业刊物</span>
-            <span>标杆人物通讯稿件</span>
-            <span>人物海报</span>
-          </div>
-        </div>
+        <MeetingEditorial
+          items={factoryCards}
+          sectionLabel="FACTORY MARKETING"
+          navigationLabel="工厂营销拍摄类型"
+        />
       </section>
 
       <footer>
