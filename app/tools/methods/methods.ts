@@ -1,4 +1,4 @@
-export type MethodSlug = "news-writing" | "editorial-photography" | "copyright-check";
+export type MethodSlug = "editorial-magazine" | "editorial-photography" | "copyright-check";
 
 export type MethodGuide = {
   slug: MethodSlug;
@@ -19,20 +19,20 @@ export type MethodGuide = {
 
 export const methodGuides: MethodGuide[] = [
   {
-    slug: "news-writing",
-    href: "/tools/methods/news-writing",
-    title: "新闻写作指南",
-    englishTitle: "NEWS WRITING GUIDE",
-    description: "从信息梳理到标题、导语和正文结构，快速完成一篇清楚、准确的企业新闻。",
-    readingTime: "约 6 分钟",
-    lead: "先回答“发生了什么、为什么值得写”，再动笔。企业新闻不是会议记录，而是把重要信息按读者最关心的顺序重新组织。",
+    slug: "editorial-magazine",
+    href: "/tools/methods/editorial-magazine",
+    title: "电子刊制作指南",
+    englishTitle: "DIGITAL MAGAZINE GUIDE",
+    description: "工具怎么选、流程怎么走、互动怎么做。",
+    readingTime: "",
+    lead: "互动元素是电子刊的核心优势，合理使用可显著提升阅读时长和参与感。",
     sections: [
-      { number: "01", title: "写前判断", summary: "先确认新闻价值，再确定写作角度。", points: ["用一句话概括事件及其意义", "补齐时间、地点、人物、事件、原因和结果", "确认最值得被读者记住的一个重点"] },
-      { number: "02", title: "标题与导语", summary: "标题给结论，导语交代核心事实。", points: ["标题优先使用具体动作和结果", "避免口号式、万能式表达", "导语控制在一段内，先写最重要的信息"] },
-      { number: "03", title: "正文结构", summary: "按重要程度展开，而不是按会议流程复述。", points: ["第一部分说明事件价值和关键成果", "第二部分补充现场细节、数据或人物表达", "结尾落到后续行动，避免重复拔高"] },
-      { number: "04", title: "交付审校", summary: "最后检查事实、表达与阅读节奏。", points: ["核对姓名、职务、数字、日期和专有名词", "删除重复表述、空泛形容词和过长句", "检查图片说明是否准确对应画面"] },
+      { number: "01", title: "选型对比", summary: "电子刊 vs 纸质刊。", points: [] },
+      { number: "02", title: "工具选型", summary: "工具分类总览与选型决策。", points: [] },
+      { number: "03", title: "制作流程", summary: "策划准备、编辑制作、发布校对。", points: [] },
+      { number: "04", title: "互动元素", summary: "合理使用可显著提升阅读时长和参与感。", points: [] },
     ],
-    checklist: ["标题是否包含核心事件", "导语能否独立说明主要事实", "是否有数据或细节支撑", "人名职务和时间是否准确", "结尾是否给出明确后续"],
+    checklist: [],
   },
   {
     slug: "editorial-photography",
