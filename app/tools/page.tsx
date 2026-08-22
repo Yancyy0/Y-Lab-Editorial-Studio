@@ -169,7 +169,7 @@ export default function ToolsPage() {
                 <span>UTILITIES</span>
                 <h2 id="tools-heading">工具</h2>
               </div>
-              <p>{activeToolCategory ? `当前分类 · ${activeToolCategory}` : "打开即用的宣传工作资源"}</p>
+              {activeToolCategory && <p>{`当前分类 · ${activeToolCategory}`}</p>}
             </div>
 
             <div className="tools-grid">
