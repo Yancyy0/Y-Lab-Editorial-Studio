@@ -166,7 +166,6 @@ export default function EditorialMagazineGuidePage() {
             <a className="hero__start" href="#comparison">阅读指南 <span aria-hidden="true">↓</span></a>
           </div>
           <aside className="hero-index" aria-label="电子刊制作指南目录">
-            <div className="hero-index__top"><span>DIGITAL MAGAZINE</span><b>01—04</b></div>
             <ol>
               <li><a href="#comparison"><span>01</span>电子刊优势</a></li>
               <li><a href="#tools-selection"><span>02</span>工具选型</a></li>
