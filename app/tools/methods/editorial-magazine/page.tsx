@@ -105,12 +105,12 @@ function GuideTable({ label, headers, rows, numbered = false }: { label: string;
   );
 }
 
-function SectionPager({ current, previous, next }: { current: string; previous?: string; next?: string }) {
+function SectionPager({ current, next }: { current: string; next?: string }) {
   return (
     <nav className="section-pager" aria-label={`第 ${current} 章翻页导航`}>
-      {previous ? <a href={previous}>← <span>Previous</span></a> : <span aria-hidden="true" />}
+      <span aria-hidden="true" />
       <strong>Details · {current} / 04</strong>
-      {next ? <a href={next}><span>Next</span> →</a> : <a href="#top"><span>Top</span> ↑</a>}
+      {next ? <a href={next}><span>Next</span> →</a> : <span aria-hidden="true" />}
     </nav>
   );
 }
@@ -133,7 +133,7 @@ export default function EditorialMagazineGuidePage() {
           <aside className="hero-index" aria-label="电子刊制作指南目录">
             <div className="hero-index__top"><span>DIGITAL MAGAZINE</span><b>01—04</b></div>
             <ol>
-              <li><a href="#comparison"><span>01</span>选型对比</a></li>
+              <li><a href="#comparison"><span>01</span>电子刊优势</a></li>
               <li><a href="#tools-selection"><span>02</span>工具选型</a></li>
               <li><a href="#workflow"><span>03</span>制作流程</a></li>
               <li><a href="#interaction"><span>04</span>互动元素</a></li>
@@ -143,43 +143,39 @@ export default function EditorialMagazineGuidePage() {
       </header>
 
       <nav className="quick-nav" aria-label="指南目录">
-        <a href="#comparison"><span>01</span><b>选型对比</b><small>COMPARISON</small></a>
+        <a href="#comparison"><span>01</span><b>电子刊优势</b><small>ADVANTAGES</small></a>
         <a href="#tools-selection"><span>02</span><b>工具选型</b><small>TOOLS</small></a>
         <a href="#workflow"><span>03</span><b>制作流程</b><small>WORKFLOW</small></a>
         <a href="#interaction"><span>04</span><b>互动元素</b><small>INTERACTION</small></a>
       </nav>
 
       <section className="section" id="comparison">
-        <div className="section-heading section-heading--split"><div><p className="section-kicker">01 · COMPARISON</p><h2>选型<br />对比</h2></div><p>电子刊 vs 纸质刊：从制作成本到环保属性，逐项查看电子刊优势。</p></div>
-        <GuideTable label="电子刊与纸质刊对比" headers={["对比维度", "电子刊优势"]} rows={comparisonRows} numbered />
-        <aside className="field-note"><b>分发与更新</b><p>链接/二维码，微信/飞书一键转发；在线修改，链接不变，随时更新。</p></aside>
+        <div className="section-heading section-heading--split"><div><p className="section-kicker">01 · ADVANTAGES</p><h2>电子刊优势</h2></div><p>从制作成本到环保属性，逐项查看电子刊优势。</p></div>
+        <GuideTable label="电子刊优势" headers={["维度", "电子刊优势"]} rows={comparisonRows} numbered />
         <SectionPager current="01" next="#tools-selection" />
       </section>
 
       <section className="section section--tinted" id="tools-selection">
-        <div className="section-heading section-heading--split"><div><p className="section-kicker">02 · TOOL SELECTION</p><h2>工具<br />选型</h2></div><p>工具分类总览与选型决策。</p></div>
+        <div className="section-heading section-heading--split"><div><p className="section-kicker">02 · TOOL SELECTION</p><h2>工具选型</h2></div><p>工具分类总览与选型决策。</p></div>
         <div className="content-block"><div className="content-block__label"><span>2.1</span><h3>工具分类总览</h3></div><GuideTable label="工具分类总览" headers={["类别", "代表工具", "适用人群", "上手难度", "核心优势"]} rows={toolOverviewRows} numbered /></div>
         <div className="content-block"><div className="content-block__label"><span>2.2</span><h3>选型决策</h3></div><GuideTable label="电子刊工具选型决策" headers={["需求", "首选工具", "理由"]} rows={decisionRows} numbered /></div>
-        <aside className="field-note"><b>模板套用</b><p>Canva可画 + 云展网：Canva做单页设计，云展网组装成翻页刊。</p></aside>
-        <SectionPager current="02" previous="#comparison" next="#workflow" />
+        <SectionPager current="02" next="#workflow" />
       </section>
 
       <section className="section" id="workflow">
-        <div className="section-heading section-heading--split"><div><p className="section-kicker">03 · WORKFLOW</p><h2>制作<br />流程</h2></div><p>阶段一策划准备 / 阶段二编辑制作 / 阶段三发布校对</p></div>
+        <div className="section-heading section-heading--split"><div><p className="section-kicker">03 · WORKFLOW</p><h2>制作流程</h2></div><p>策划准备 / 编辑制作 / 发布校对</p></div>
         <div className="stage-list">
           <article className="stage"><header><span>STAGE 01</span><h3>策划准备</h3></header><GuideTable label="阶段一策划准备" headers={["节点", "特别注意"]} rows={planningRows} numbered /></article>
           <article className="stage"><header><span>STAGE 02</span><h3>编辑制作</h3></header><GuideTable label="阶段二编辑制作" headers={["节点", "特别注意"]} rows={editingRows} numbered /></article>
           <article className="stage"><header><span>STAGE 03</span><h3>发布校对</h3></header><GuideTable label="阶段三发布校对" headers={["节点", "做什么", "特别注意"]} rows={publishingRows} numbered /></article>
         </div>
-        <aside className="field-note"><b>数据监控</b><p>发布后第1天/第3天/第7天分别查看，及时二次推送。</p></aside>
-        <SectionPager current="03" previous="#tools-selection" next="#interaction" />
+        <SectionPager current="03" next="#interaction" />
       </section>
 
       <section className="section section--tinted" id="interaction">
-        <div className="section-heading section-heading--split"><div><p className="section-kicker">04 · INTERACTION</p><h2>互动<br />元素</h2></div><p>互动元素是电子刊的核心优势，合理使用可显著提升阅读时长和参与感。</p></div>
+        <div className="section-heading section-heading--split"><div><p className="section-kicker">04 · INTERACTION</p><h2>互动元素</h2></div><p>互动元素是电子刊的核心优势，合理使用可显著提升阅读时长和参与感。</p></div>
         <GuideTable label="电子刊互动元素" headers={["互动类型", "适用场景", "放置位置建议", "注意事项"]} rows={interactionRows} numbered />
-        <aside className="field-note"><b>弹窗 / 浮层</b><p>不要频繁弹窗，影响阅读体验；一期最多1-2个。</p></aside>
-        <SectionPager current="04" previous="#workflow" />
+        <SectionPager current="04" />
       </section>
 
       <footer><p>电子刊制作指南</p><a href="#top">返回顶部 ↑</a></footer>
