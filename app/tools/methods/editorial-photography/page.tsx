@@ -125,11 +125,8 @@ export default function Home() {
           <aside className="profile-card" aria-label="摄影经验整理者吴梦燕">
             <div className="profile-card__base" aria-hidden="true">
               <div className="profile-card__avatar-space" />
-              <div className="profile-card__identity">
-                <p className="profile-card__place">产业综合部{"\u00A0\u00A0"}文宣组</p>
-                <h2>吴梦燕</h2>
-              </div>
-              <p className="profile-card__about">摄影实操经验整理自首席摄影吴梦燕，长期深耕企业宣传影像，沉淀诸多实战拍摄心得。</p>
+              <h2>吴梦燕</h2>
+              <p className="profile-card__about">摄影实操经验整理自@<strong>伟星股份产业综合部文宣组首席摄影</strong>吴梦燕，长期深耕企业宣传影像，沉淀诸多实战拍摄心得。</p>
               <span className="profile-card__mark">PHOTOGRAPHY / PRACTICE</span>
             </div>
 
@@ -150,11 +147,8 @@ export default function Home() {
                 />
                 <span role="tooltip">点击对话</span>
               </a>
-              <div className="profile-card__identity">
-                <p className="profile-card__place">产业综合部{"\u00A0\u00A0"}文宣组</p>
-                <h2>吴梦燕</h2>
-              </div>
-              <p className="profile-card__about">摄影实操经验整理自首席摄影吴梦燕，长期深耕企业宣传影像，沉淀诸多实战拍摄心得。</p>
+              <h2>吴梦燕</h2>
+              <p className="profile-card__about">摄影实操经验整理自@<strong>伟星股份产业综合部文宣组首席摄影</strong>吴梦燕，长期深耕企业宣传影像，沉淀诸多实战拍摄心得。</p>
               <span className="profile-card__mark">PHOTOGRAPHY / PRACTICE</span>
             </div>
           </aside>

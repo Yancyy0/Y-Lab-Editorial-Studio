@@ -141,6 +141,7 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   display: flex;
   min-height: 396px;
   flex-direction: column;
+  justify-content: space-between;
   padding: 30px;
 }
 .photography-guide-page .profile-card__base { color: var(--ink); }
@@ -198,21 +199,6 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   transform: translate(0, -50%);
 }
 .photography-guide-page .profile-card__avatar-link:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 4px; }
-.photography-guide-page .profile-card__identity {
-  display: grid;
-  gap: 2px;
-  margin-top: 18px;
-  line-height: 1.02;
-}
-.photography-guide-page .profile-card__place {
-  margin: 0;
-  color: #5a707a;
-  font-size: clamp(23px, 7.2vw, 36px);
-  font-weight: 650;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  white-space: nowrap;
-}
 .photography-guide-page .profile-card h2 {
   margin: 0;
   font-size: clamp(23px, 7.2vw, 36px);
@@ -220,13 +206,14 @@ html:has(.photography-guide-page) { scroll-behavior: smooth; scroll-padding-top:
   line-height: 1.02;
 }
 .photography-guide-page .profile-card__about {
-  margin: 18px 0 0;
+  margin: 0;
   color: #4e626b;
   font-size: clamp(14px, 1.25vw, 18px);
   line-height: 1.6;
 }
+.photography-guide-page .profile-card__about strong { color: inherit; font-size: inherit; font-weight: 750; }
 .photography-guide-page .profile-card__mark {
-  margin-top: 18px;
+  margin: 0;
   color: #5b8fa4;
   font: 700 10px/1.4 var(--font-geist-mono), monospace;
   letter-spacing: 0.14em;
