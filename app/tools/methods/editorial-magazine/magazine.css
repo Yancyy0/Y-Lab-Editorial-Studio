@@ -202,11 +202,11 @@ html:has(.editorial-magazine-guide-page) { scroll-behavior: smooth; scroll-paddi
 .editorial-magazine-guide-page .cell-section-notes { display: grid; gap: 22px; min-width: 410px; }
 .editorial-magazine-guide-page .cell-section-notes p { margin: 0; }
 .editorial-magazine-guide-page .cell-section-notes p + p { padding-top: 20px; border-top: 1px solid var(--line); }
-.editorial-magazine-guide-page .cell-section-notes b { display: block; margin-bottom: 12px; color: var(--ink); font-size: 16px; }
+.editorial-magazine-guide-page .cell-section-notes b { display: block; margin-bottom: 12px; color: var(--ink); font-size: 14px; }
 .editorial-magazine-guide-page .cell-section-notes span { display: block; }
 .editorial-magazine-guide-page .cell-checklists { display: grid; gap: 24px; min-width: 440px; }
 .editorial-magazine-guide-page .cell-checklists > div + div { padding-top: 22px; border-top: 1px solid var(--line); }
-.editorial-magazine-guide-page .cell-checklists b { display: block; margin-bottom: 12px; color: var(--ink); font-size: 16px; }
+.editorial-magazine-guide-page .cell-checklists b { display: block; margin-bottom: 12px; color: var(--ink); font-size: 14px; }
 .editorial-magazine-guide-page .cell-checklists ol { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: check; }
 .editorial-magazine-guide-page .cell-checklists li { display: grid; grid-template-columns: 26px minmax(110px, auto) 1fr; gap: 10px; counter-increment: check; }
 .editorial-magazine-guide-page .cell-checklists li::before { color: var(--sky-deep); content: counter(check); font: 700 10px/1.8 var(--font-geist-mono), monospace; }
